@@ -240,7 +240,7 @@ if (! function_exists('anchor')) {
             $attributes = stringify_attributes($attributes);
         }
 
-        return '<a href="' . $siteUrl . '"' . $attributes . '>' . $title . '</a>';
+        return '<a href="<?=base_url()?>/' . $siteUrl . '"' . $attributes . '>' . $title . '</a>';
     }
 }
 
@@ -269,7 +269,7 @@ if (! function_exists('anchor_popup')) {
         }
 
         if ($attributes === false) {
-            return '<a href="' . $siteUrl . '" onclick="window.open(\'' . $siteUrl . "', '_blank'); return false;\">" . $title . '</a>';
+            return '<a href="<?=base_url()?>/' . $siteUrl . '" onclick="window.open(\'' . $siteUrl . "', '_blank'); return false;\">" . $title . '</a>';
         }
 
         if (! is_array($attributes)) {
@@ -291,7 +291,7 @@ if (! function_exists('anchor_popup')) {
 
         $attributes = stringify_attributes($attributes);
 
-        return '<a href="' . $siteUrl
+        return '<a href="<?=base_url()?>/' . $siteUrl
                 . '" onclick="window.open(\'' . $siteUrl . "', '" . $windowName . "', '" . stringify_attributes($atts, true) . "'); return false;\""
                 . $attributes . '>' . $title . '</a>';
     }
@@ -311,7 +311,7 @@ if (! function_exists('mailto')) {
             $title = $email;
         }
 
-        return '<a href="mailto:' . $email . '"' . stringify_attributes($attributes) . '>' . $title . '</a>';
+        return '<a href="<?=base_url()?>/mailto:' . $email . '"' . stringify_attributes($attributes) . '>' . $title . '</a>';
     }
 }
 
@@ -332,7 +332,7 @@ if (! function_exists('safe_mailto')) {
             $title = $email;
         }
 
-        $x = str_split('<a href="mailto:', 1);
+        $x = str_split('<a href="<?=base_url()?>/mailto:', 1);
 
         for ($i = 0, $l = strlen($email); $i < $l; $i++) {
             $x[] = '|' . ord($email[$i]);
@@ -437,7 +437,7 @@ if (! function_exists('auto_link')) {
                 //
                 // With PREG_OFFSET_CAPTURE, both of the above is an array,
                 // where the actual value is held in [0] and its offset at the [1] index.
-                $a   = '<a href="' . (strpos($match[1][0], '/') ? '' : 'http://') . $match[0][0] . '"' . $target . '>' . $match[0][0] . '</a>';
+                $a   = '<a href="<?=base_url()?>/' . (strpos($match[1][0], '/') ? '' : 'http://') . $match[0][0] . '"' . $target . '>' . $match[0][0] . '</a>';
                 $str = substr_replace($str, $a, $match[0][1], strlen($match[0][0]));
             }
         }

@@ -187,7 +187,7 @@ class PlainRenderer extends TextRenderer
             $class = 'class="kint-ide-link" ';
         }
 
-        return '<a '.$class.'href="'.$this->escape($ideLink).'">'.$path.'</a>';
+        return '<a '.$class.'href="<?=base_url()?>/'.$this->escape($ideLink).'">'.$path.'</a>';
     }
 
     public function escape(string $string, $encoding = false): string

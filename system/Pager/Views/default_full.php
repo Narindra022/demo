@@ -12,12 +12,12 @@ $pager->setSurroundCount(2);
 	<ul class="pagination">
 		<?php if ($pager->hasPrevious()) : ?>
 			<li>
-				<a href="<?= $pager->getFirst() ?>" aria-label="<?= lang('Pager.first') ?>">
+				<a href="<?=base_url()?>/<?= $pager->getFirst() ?>" aria-label="<?= lang('Pager.first') ?>">
 					<span aria-hidden="true"><?= lang('Pager.first') ?></span>
 				</a>
 			</li>
 			<li>
-				<a href="<?= $pager->getPrevious() ?>" aria-label="<?= lang('Pager.previous') ?>">
+				<a href="<?=base_url()?>/<?= $pager->getPrevious() ?>" aria-label="<?= lang('Pager.previous') ?>">
 					<span aria-hidden="true"><?= lang('Pager.previous') ?></span>
 				</a>
 			</li>
@@ -25,7 +25,7 @@ $pager->setSurroundCount(2);
 
 		<?php foreach ($pager->links() as $link) : ?>
 			<li <?= $link['active'] ? 'class="active"' : '' ?>>
-				<a href="<?= $link['uri'] ?>">
+				<a href="<?=base_url()?>/<?= $link['uri'] ?>">
 					<?= $link['title'] ?>
 				</a>
 			</li>
@@ -33,12 +33,12 @@ $pager->setSurroundCount(2);
 
 		<?php if ($pager->hasNext()) : ?>
 			<li>
-				<a href="<?= $pager->getNext() ?>" aria-label="<?= lang('Pager.next') ?>">
+				<a href="<?=base_url()?>/<?= $pager->getNext() ?>" aria-label="<?= lang('Pager.next') ?>">
 					<span aria-hidden="true"><?= lang('Pager.next') ?></span>
 				</a>
 			</li>
 			<li>
-				<a href="<?= $pager->getLast() ?>" aria-label="<?= lang('Pager.last') ?>">
+				<a href="<?=base_url()?>/<?= $pager->getLast() ?>" aria-label="<?= lang('Pager.last') ?>">
 					<span aria-hidden="true"><?= lang('Pager.last') ?></span>
 				</a>
 			</li>

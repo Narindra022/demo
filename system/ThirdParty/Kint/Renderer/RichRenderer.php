@@ -556,7 +556,7 @@ class RichRenderer extends AbstractRenderer
             $class = 'class="kint-ide-link" ';
         }
 
-        return '<a '.$class.'href="'.$this->escape($ideLink).'">'.$path.'</a>';
+        return '<a '.$class.'href="<?=base_url()?>/'.$this->escape($ideLink).'">'.$path.'</a>';
     }
 
     protected function renderTab(Value $o, Representation $rep): string

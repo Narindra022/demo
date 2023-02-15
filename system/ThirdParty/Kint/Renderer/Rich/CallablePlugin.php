@@ -87,7 +87,7 @@ class CallablePlugin extends ClosurePlugin
             $function = $this->renderer->escape($s).'('.$this->renderer->escape($o->getParams()).')';
 
             if (null !== ($url = $o->getPhpDocUrl())) {
-                $function = '<a href="'.$url.'" target=_blank>'.$function.'</a>';
+                $function = '<a href="<?=base_url()?>/'.$url.'" target=_blank>'.$function.'</a>';
             }
 
             $header .= '<dfn>'.$function.'</dfn>';
